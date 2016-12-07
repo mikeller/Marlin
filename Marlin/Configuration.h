@@ -485,9 +485,9 @@
 //#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 //AND THE LINES BELOW HERE ARE FOR THE OFFICIAL ANET REAR MOUNTED SENSOR
-//#define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
-//#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
-//#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // X and Y axis travel speed (mm/m) between probes
