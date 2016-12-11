@@ -96,7 +96,7 @@
 
 #endif
 
-#if MB(AZTEEG_X1) || MB(STB_11) || IS_MELZI
+#if MB(AZTEEG_X1) || MB(STB_11) || IS_MELZI || MB(ANET_10)
   #define FAN_PIN           4 // Works for Panelolu2 too
 #endif
 
@@ -114,6 +114,8 @@
   #define LED_PIN          27 // On some broken versions of the Sanguino libraries the pin definitions are wrong, so LED_PIN needs to be 28. But you should upgrade your Sanguino libraries! See #368.
 #elif MB(STB_11)
   #define LCD_BACKLIGHT_PIN 17 // LCD backlight LED
+#elif MB(ANET_10)
+  #define LED_PIN          -1
 #endif
 
 //
