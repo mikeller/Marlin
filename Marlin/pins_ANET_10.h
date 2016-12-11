@@ -21,23 +21,10 @@
  */
 
 /**
- * Sanguinololu V1.2 pin assignments
- *
- * Applies to the following boards:
- *
- *  AZTEEG_X1
- *  MELZI
- *  MELZI_MAKR3D
- *  SANGUINOLOLU_12
- *  STB_11
- *  ANET_10
+ * Melzi pin assignments
  */
 
-#define BOARD_NAME "Sanguinololu 1.2"
-
-#if defined(__AVR_ATmega1284P__)
-  #define LARGE_FLASH true
-#endif
+#define BOARD_NAME "Anet 10"
 
 #define SANGUINOLOLU_V_1_2
 #include "pins_SANGUINOLOLU_11.h"
