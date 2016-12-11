@@ -1097,7 +1097,7 @@
 // IMPORTANT NOTE: The U8glib library is required for Full Graphic Display!
 //                 https://github.com/olikraus/U8glib_Arduino
 //
-//#define ULTRA_LCD   // Character based
+#define ULTRA_LCD   // Character based
 //#define DOGLCD      // Full graphics display
 
 //
@@ -1279,8 +1279,8 @@
 // REPRAPWORLD_KEYPAD_MOVE_STEP sets how much should the robot move when a key
 // is pressed, a value of 10.0 means 10mm per click.
 //
-#define REPRAPWORLD_KEYPAD
-#define REPRAPWORLD_KEYPAD_MOVE_STEP 1.0
+//#define REPRAPWORLD_KEYPAD
+//#define REPRAPWORLD_KEYPAD_MOVE_STEP 1.0
 
 //
 // RigidBot Panel V1.0
