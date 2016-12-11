@@ -211,5 +211,14 @@
   #define BTN_ENC               16
 
   #define SD_DETECT_PIN         -1
+#elif MB(ANET_10)
+  #define LCD_PINS_RS        28
+  #define LCD_PINS_ENABLE    29
+  #define LCD_PINS_D4        10
+  #define LCD_PINS_D5        11
+  #define LCD_PINS_D6        16
+  #define LCD_PINS_D7        17
 
-#endif // MAKRPANEL
+  #define LCD_WIDTH          20
+  #define LCD_HEIGHT          4
+#endif // ANET_10
