@@ -219,6 +219,5 @@
   #define LCD_PINS_D6        16
   #define LCD_PINS_D7        17
 
-  #define LCD_WIDTH          20
-  #define LCD_HEIGHT          4
+  #define ADC_KEYPAD_PIN      1
 #endif // ANET_10
