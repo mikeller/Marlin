@@ -134,6 +134,11 @@ class Temperature {
       static bool tooColdToExtrude(uint8_t e) { UNUSED(e); return false; }
     #endif
 
+#ifdef ADC_KEYPAD
+      static uint32_t current_ADCKey_raw;
+      static uint8_t ADCKey_count;
+#endif
+
   private:
 
     #if ENABLED(TEMP_SENSOR_1_AS_REDUNDANT)

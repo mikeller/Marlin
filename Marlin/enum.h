@@ -107,6 +107,10 @@ enum TempState {
   MeasureTemp_3,
   Prepare_FILWIDTH,
   Measure_FILWIDTH,
+#if ENABLED(ADC_KEYPAD)
+  Prepare_ADC_KEY,
+  Measure_ADC_KEY,
+#endif
   StartupDelay // Startup, delay initial temp reading a tiny bit so the hardware can settle
 };
 

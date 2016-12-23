@@ -2593,7 +2593,7 @@ void lcd_init() {
       WRITE(BTN_ENC, HIGH);
     #endif
 
-    #if ENABLED(REPRAPWORLD_KEYPAD)
+    #if ENABLED(REPRAPWORLD_KEYPAD) && defined(SHIFT_CLK)
       SET_OUTPUT(SHIFT_CLK);
       OUT_WRITE(SHIFT_LD, HIGH);
       SET_INPUT_PULLUP(SHIFT_OUT);
@@ -3015,6 +3015,49 @@ void lcd_reset_alert_level() { lcd_status_message_level = 0; }
 
 #if ENABLED(ULTIPANEL)
 
+#if ENABLED(ADC_KEYPAD)
+
+#define    ADC_KEY_NUM     8
+
+typedef struct
+{
+   unsigned short ADCKeyValueMin;
+   unsigned short ADCKeyValueMax;
+   unsigned char  ADCKeyNo;
+} _stADCKeypadTable_;
+
+const _stADCKeypadTable_ stADCKeyTable[ADC_KEY_NUM] =
+{
+   //VALUE_MIN, VALUE_MAX , KEY
+   { 2000, 2048, BLEN_REPRAPWORLD_KEYPAD_F1 + 1 },      //F1
+   { 2000, 2048, BLEN_REPRAPWORLD_KEYPAD_F2 + 1 },      //F2
+   { 2000, 2048, BLEN_REPRAPWORLD_KEYPAD_F3 + 1 },      //F3
+   { 150, 250,  BLEN_REPRAPWORLD_KEYPAD_LEFT + 1 }, //LEFT
+   { 950, 1100, BLEN_REPRAPWORLD_KEYPAD_RIGHT + 1 },    //RIGHT
+   { 280, 440,  BLEN_REPRAPWORLD_KEYPAD_UP + 1 },       //UP
+   { 1340, 1440, BLEN_REPRAPWORLD_KEYPAD_DOWN + 1 },    //DOWN
+   { 580, 730, BLEN_REPRAPWORLD_KEYPAD_MIDDLE + 1 },    //ENTER
+};
+
+unsigned char get_ADC_keyValue(void)
+{
+   if (thermalManager.ADCKey_count >= 16) {
+       unsigned short currentkpADCValue = (thermalManager.current_ADCKey_raw / 8);
+       thermalManager.current_ADCKey_raw = 0;
+       thermalManager.ADCKey_count = 0;
+       if (currentkpADCValue < 1600) {
+           for (unsigned char i = 0; i<ADC_KEY_NUM; i++) {
+               if ((currentkpADCValue > stADCKeyTable[i].ADCKeyValueMin) && (currentkpADCValue < stADCKeyTable[i].ADCKeyValueMax)) {
+                   return stADCKeyTable[i].ADCKeyNo;
+               }
+           }
+       }
+   }
+
+   return 0;
+}
+#endif
+
   /**
    * Setup Rotary Encoder Bit Values (for two pin encoders to indicate movement)
    * These values are independent of which pins are used for EN_A and EN_B indications
@@ -3113,7 +3156,16 @@ void lcd_reset_alert_level() { lcd_status_message_level = 0; }
         #if ENABLED(LCD_HAS_SLOW_BUTTONS)
           buttons |= slow_buttons;
         #endif
-        #if ENABLED(REPRAPWORLD_KEYPAD)
+        #if ENABLED(ADC_KEYPAD)
+          // for the Anet A8 keypad
+          uint8_t newbutton_reprapworld_keypad = 0;
+          buttons = 0;
+          if (buttons_reprapworld_keypad == 0) {
+            newbutton_reprapworld_keypad = get_ADC_keyValue();
+              if ((newbutton_reprapworld_keypad > 0) && (newbutton_reprapworld_keypad <= 8))
+                  buttons_reprapworld_keypad = 1 << (newbutton_reprapworld_keypad - 1);
+          }
+        #elif ENABLED(REPRAPWORLD_KEYPAD)
           GET_BUTTON_STATES(buttons_reprapworld_keypad);
         #endif
       #else
