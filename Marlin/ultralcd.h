@@ -78,10 +78,10 @@
     // Encoder click is directly connected
     #if BUTTON_EXISTS(ENC)
       #define BLEN_C 2
+      #define EN_C (_BV(BLEN_C))
     #endif
     #define EN_A (_BV(BLEN_A))
     #define EN_B (_BV(BLEN_B))
-    #define EN_C (_BV(BLEN_C))
 
     extern volatile uint8_t buttons;  //the last checked buttons in a bit array.
     void lcd_buttons_update();
@@ -145,7 +145,11 @@
                                               EN_REPRAPWORLD_KEYPAD_LEFT) \
                                             )
 
-    #define LCD_CLICKED ((buttons & EN_C) || (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_F1))
+    #if !defined(ADC_KEYPAD)
+      #define LCD_CLICKED ((buttons & EN_C) || (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_F1))
+    #else
+      #define LCD_CLICKED false
+    #endif
   #elif ENABLED(NEWPANEL)
     #define LCD_CLICKED (buttons & EN_C)
   #else
