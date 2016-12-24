@@ -1855,8 +1855,8 @@ void Temperature::isr() {
         raw_ADCKey_value = ADC;
         if (raw_ADCKey_value > 900) {
           //ADC Key release
-          ADCKey_count = 0;
           current_ADCKey_raw = 0;
+          ADCKey_count = 0;
         } else {
           current_ADCKey_raw += raw_ADCKey_value;
           ADCKey_count++;

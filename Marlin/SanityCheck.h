@@ -595,7 +595,7 @@
 /**
  * ULTIPANEL encoder
  */
-#if ENABLED(ULTIPANEL) && DISABLED(NEWPANEL) && DISABLED(SR_LCD_2W_NL) && !defined(SHIFT_CLK)
+#if ENABLED(ULTIPANEL) && DISABLED(NEWPANEL) && DISABLED(SR_LCD_2W_NL) && !defined(SHIFT_CLK) && !defined(ADC_KEYPAD)
   #error "ULTIPANEL requires some kind of encoder."
 #endif
 

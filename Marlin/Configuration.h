@@ -122,7 +122,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -1361,6 +1361,7 @@
 // CONTROLLER TYPE: Anet A8 keypad
 //
 #define ANET_KEYPAD_LCD
+#define ANET_KEYPAD_LCD_DEBUG
 
 //=============================================================================
 //=============================== Extra Features ==============================
