@@ -1,3 +1,4 @@
+
 /**
  * Marlin 3D Printer Firmware
  * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -485,8 +486,11 @@
 //#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 //AND THE LINES BELOW HERE ARE FOR THE OFFICIAL ANET REAR MOUNTED SENSOR
-#define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
+//#define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
+//#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
+//#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER 19  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER  56 // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -620,7 +624,7 @@
 #define Y_MAX_POS     220
 #define Y_MIN_POS     -10
 #define Z_MAX_POS     240
-#define Z_MIN_POS 0
+#define Z_MIN_POS   0
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -668,7 +672,7 @@
 // Enable this feature to get detailed logging of G28, G29, M48, etc.
 // Logging is off by default. Enable this logging feature with 'M111 S32'.
 // NOTE: Requires a huge amount of PROGMEM.
-//#define DEBUG_LEVELING_FEATURE
+// #define DEBUG_LEVELING_FEATURE
 
 #if ENABLED(AUTO_BED_LEVELING_FEATURE)
 
@@ -688,11 +692,11 @@
   #define AUTO_BED_LEVELING_GRID
 
   #if ENABLED(AUTO_BED_LEVELING_GRID)
-
-    #define LEFT_PROBE_BED_POSITION 15
-    #define RIGHT_PROBE_BED_POSITION  190
-    #define BACK_PROBE_BED_POSITION 170
-    #define FRONT_PROBE_BED_POSITION  15
+  
+    #define LEFT_PROBE_BED_POSITION   30
+    #define RIGHT_PROBE_BED_POSITION  200
+    #define FRONT_PROBE_BED_POSITION  71
+    #define BACK_PROBE_BED_POSITION   180
 
     #define MIN_PROBE_EDGE 10 // The Z probe minimum square sides can be no smaller than this.
 
@@ -982,7 +986,7 @@
 // IMPORTANT NOTE: The U8glib library is required for Full Graphic Display!
 //                 https://github.com/olikraus/U8glib_Arduino
 //
-//#define ULTRA_LCD   // Character based
+#define ULTRA_LCD   // Character based
 //#define DOGLCD      // Full graphics display
 
 #define ANET_KEYPAD_LCD
