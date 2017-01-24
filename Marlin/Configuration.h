@@ -479,16 +479,6 @@
 //  (0,0)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-// uncomment "//" the lines below to select the correct sensor simply delete the double //
-// BELOW IS FOR THE FRONT MOUNTED SENSOR WITH 3D PRINTED MOUNT
-//#define X_PROBE_OFFSET_FROM_EXTRUDER -28  // X offset: -left  +right  [of the nozzle]
-//#define Y_PROBE_OFFSET_FROM_EXTRUDER -45  // Y offset: -front +behind [the nozzle]
-//#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
-
-//AND THE LINES BELOW HERE ARE FOR THE OFFICIAL ANET REAR MOUNTED SENSOR
-//#define X_PROBE_OFFSET_FROM_EXTRUDER -1  // X offset: -left  +right  [of the nozzle]
-//#define Y_PROBE_OFFSET_FROM_EXTRUDER  3 // Y offset: -front +behind [the nozzle]
-//#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 #define X_PROBE_OFFSET_FROM_EXTRUDER 19  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER  56 // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
@@ -619,7 +609,9 @@
 // @section machine
 
 // Travel limits after homing (units are in mm)
-#define X_MAX_POS     210
+//#define X_MAX_POS     210
+// After installing X belt tensioner:
+#define X_MAX_POS     173
 #define X_MIN_POS     -33
 #define Y_MAX_POS     210
 #define Y_MIN_POS     -10
@@ -694,7 +686,9 @@
   #if ENABLED(AUTO_BED_LEVELING_GRID)
   
     #define LEFT_PROBE_BED_POSITION   30
-    #define RIGHT_PROBE_BED_POSITION  200
+    //#define RIGHT_PROBE_BED_POSITION  200
+    // After installing X belt tensioner
+    #define RIGHT_PROBE_BED_POSITION  173
     #define FRONT_PROBE_BED_POSITION  71
     #define BACK_PROBE_BED_POSITION   180
 
