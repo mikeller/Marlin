@@ -1,0 +1,11 @@
+10     9
+nc     nc
+8      7
+GND    RST
+5      5
+MOSI   SCK
+4      3
+VCC    MISO
+2      1
+nc     nc
+
