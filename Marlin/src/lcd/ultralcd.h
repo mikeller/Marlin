@@ -166,12 +166,14 @@
     #define REPRAPWORLD_KEYPAD_MOVE_X_LEFT  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_LEFT)
 
     #if ENABLED(ADC_KEYPAD)
+      #undef REPRAPWORLD_KEYPAD_MOVE_HOME
       #define REPRAPWORLD_KEYPAD_MOVE_HOME  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_F1)
       #define KEYPAD_EN_C                   EN_REPRAPWORLD_KEYPAD_MIDDLE
     #else
       #define REPRAPWORLD_KEYPAD_MOVE_HOME  (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_MIDDLE)
       #define KEYPAD_EN_C                   EN_REPRAPWORLD_KEYPAD_F1
     #endif
+    #undef REPRAPWORLD_KEYPAD_MOVE_MENU
     #define REPRAPWORLD_KEYPAD_MOVE_MENU    (buttons_reprapworld_keypad & KEYPAD_EN_C)
 
     #if BUTTON_EXISTS(ENC)

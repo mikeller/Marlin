@@ -141,6 +141,7 @@
 // Misc. Functions
 //
 #define SDSS               31
+#define SS_PIN             31
 #define LED_PIN            -1
 
 /**
