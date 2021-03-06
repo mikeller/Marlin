@@ -1,0 +1,13 @@
+Configuration:
+
+programmer
+  id    = "ttl232r";
+  desc  = "FTDI TTL232R-5V with ICSP adapter";
+  type  = "ftdi_syncbb";
+  connection_type = usb;
+  miso  = 4; # dtr
+  sck   = 1; # rxd
+  mosi  = 3; # cts
+  reset = 0; # txd
+
+
